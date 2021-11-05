@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:get-coin-example.getBtc"
+    "onCommand:get-coin-example.getCoinPrice"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "get-coin-example.getBtc",
-        "title": "get btc"
+        "command": "get-coin-example.getCoinPrice",
+        "title": "get coins"
       }
     ]
   },

@@ -2,9 +2,14 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import API from "./api/coinApi";
-interface Coin {
-  last?: string;
-}
+import { Coin, CoinList } from "./constant-types";
+
+const coinList: CoinList[] = [
+  { label: "BTC", path: "btcusd" },
+  { label: "ETH", path: "ethusd" },
+  { label: "LTC", path: "ltcusd" },
+  { label: "ALGO", path: "algousd" },
+];
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -15,14 +20,20 @@ export function activate(context: vscode.ExtensionContext) {
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
-  let disposable = vscode.commands.registerCommand("get-coin-example.getBtc", async () => {
-    const btcCoin: Coin = await API.getCoin("btcusd");
+  let disposable = vscode.commands.registerCommand("get-coin-example.getCoinPrice", async () => {
+    const article = await vscode.window.showQuickPick(coinList, { matchOnDetail: true });
+    if (!article) {
+      return;
+    }
 
-    console.log(">>Coin>>", btcCoin.last);
+    console.log("article>>", article);
+    const coin: Coin = await API.getCoin(article.path);
+
+    console.log(">>Coin>>", coin.last);
 
     // The code you place here will be executed every time your command is executed
     // Display a message box to the user
-    vscode.window.showInformationMessage(`Hello BTC: ${btcCoin.last}`);
+    vscode.window.showInformationMessage(`📍 ${article.label}: ${coin.last}$`);
   });
 
   context.subscriptions.push(disposable);
