@@ -4,7 +4,7 @@
   "description": "provides a quick opportunity to get the price of each crypto currency",
   "version": "0.0.3",
   "publisher": "GetCryptoPrice",
-  "icon": "https://github.com/ildevelop/coin-extention/blob/master/crypto-price.png",
+  "icon": "https://raw.githubusercontent.com/ildevelop/coin-extention/master/crypto-price.png",
   "engines": {
     "vscode": "^1.61.0"
   },

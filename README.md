@@ -8,6 +8,6 @@ One of the fastest ways to get the latest cryptocurrency related updates
 
 ` Cmd SHIFT P` on Mac or `Ctrl SHIFT P` on Widows or Linux OS, then write `get coins` select yours favorite, and it's all 😊
 
-![Get Coin Price preview](https://github.com/ildevelop/coin-extention/blob/master/readme.gif)
+![Get Coin Price preview](https://raw.githubusercontent.com/ildevelop/coin-extention/master/readme.gif)
 
 Licensed under the [MIT](https://github.com/ildevelop/coin-extention/blob/master/LICENSE) License.
