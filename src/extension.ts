@@ -2,20 +2,10 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import API from "./api/coinApi";
-import { Coin, CoinList } from "./constant-types";
+import { CoinType, CoinListType } from "./constant-types";
+import { coinList } from "./config";
 
-const coinList: CoinList[] = [
-  { label: "BTC", path: "btcusd" },
-  { label: "ETH", path: "ethusd" },
-  { label: "LTC", path: "ltcusd" },
-  { label: "ALGO", path: "algousd" },
-  { label: "XRP", path: "xrpusd" },
-  { label: "LINK", path: "linkusd" },
-  { label: "MATIC", path: "maticusd" },
-  { label: "BAT", path: "batusd" },
-  { label: "SUSHI", path: "sushiusd" },
-  { label: "OMG", path: "omgusd" },
-];
+const list: CoinListType[] = coinList;
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -27,19 +17,19 @@ export function activate(context: vscode.ExtensionContext) {
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand("get-coin-example.getCoinPrice", async () => {
-    const article = await vscode.window.showQuickPick(coinList, { matchOnDetail: true });
+    const article = await vscode.window.showQuickPick(list, { matchOnDetail: true });
     if (!article) {
       return;
     }
 
-    console.log("article>>", article);
-    const coin: Coin = await API.getCoin(article.path);
+    const coin: CoinType = await API.getCoin(article.path);
 
-    console.log(">>Coin>>", coin.last);
-
-    // The code you place here will be executed every time your command is executed
-    // Display a message box to the user
-    vscode.window.showInformationMessage(`📍 ${article.label}: ${coin.last}$`);
+    const result = await vscode.window.showInformationMessage(`📍 ${article.label}: ${coin.last}$`, "😄", "😟");
+    if (result === "😄") {
+      vscode.window.showInformationMessage("thanks for good response");
+    } else if (result === "😟") {
+      vscode.window.showInformationMessage("I hope next time it should be good news for you");
+    }
   });
 
   context.subscriptions.push(disposable);

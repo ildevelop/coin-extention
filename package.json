@@ -2,8 +2,9 @@
   "name": "get-coin-example",
   "displayName": "get-coin-example",
   "description": "provides a quick opportunity to get the price of each crypto currency",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "GetCryptoPrice",
+  "icon": "https://github.com/ildevelop/coin-extention/blob/master/crypto-price.png",
   "engines": {
     "vscode": "^1.61.0"
   },
@@ -18,6 +19,7 @@
     "commands": [
       {
         "command": "get-coin-example.getCoinPrice",
+        "category": "Get Coin",
         "title": "get coins"
       }
     ]

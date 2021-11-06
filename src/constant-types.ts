@@ -1,7 +1,7 @@
-export type Coin = {
+export type CoinType = {
   last?: string;
 };
-export type CoinList = {
+export type CoinListType = {
   label: string;
   path: string;
 };
