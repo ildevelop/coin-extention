@@ -2,7 +2,7 @@
   "name": "get-coin-example",
   "displayName": "get-coin-example",
   "description": "provides a quick opportunity to get the price of each crypto currency",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "GetCryptoPrice",
   "engines": {
     "vscode": "^1.61.0"

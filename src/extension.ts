@@ -9,6 +9,12 @@ const coinList: CoinList[] = [
   { label: "ETH", path: "ethusd" },
   { label: "LTC", path: "ltcusd" },
   { label: "ALGO", path: "algousd" },
+  { label: "XRP", path: "xrpusd" },
+  { label: "LINK", path: "linkusd" },
+  { label: "MATIC", path: "maticusd" },
+  { label: "BAT", path: "batusd" },
+  { label: "SUSHI", path: "sushiusd" },
+  { label: "OMG", path: "omgusd" },
 ];
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
